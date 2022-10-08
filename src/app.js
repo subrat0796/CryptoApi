@@ -1,11 +1,17 @@
 const express = require("express");
 const cors = require("cors");
+
+const cron = require("node-schedule");
+
 const httpStatus = require("http-status");
 const config = require("./config/config");
 const morgan = require("./config/morgan");
 
 const { errorConverter, errorHandler } = require("./middlewares/error");
 const ApiError = require("./utils/ApiError");
+
+const { EtherServices } = require("./services");
+const NewEtherServices = new EtherServices();
 
 const app = express();
 
@@ -34,5 +40,9 @@ app.use((req, res, next) => {
 
 app.use(errorConverter);
 app.use(errorHandler);
+
+cron.scheduleJob("10 * * * *", async () => {
+	await NewEtherServices.getEtherPrice();
+});
 
 module.exports = app;

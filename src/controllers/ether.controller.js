@@ -22,15 +22,14 @@ const getNormalTransactions = catchAsync(async (req, res, next) => {
 const getBalanceAndPrice = catchAsync(async (req, res, next) => {
 	const { userId } = req.params;
 
-	console.log(userId);
 	// calling the services
-	// const loginUserSuccess = await AuthServices.loginUser(email, password);
+	const result = await NewEtherServices.getBalanceAndPrice(userId);
 
 	return res.status(httpStatus.OK).json({
 		code: httpStatus.OK,
 		status: httpStatus[httpStatus.OK],
 		message: "GetBalanceAndPrice",
-		data: userId,
+		data: result,
 	});
 });
 
