@@ -60,7 +60,7 @@ const TransactionModel = new mongoose.Schema(
 		},
 		contractAddress: {
 			type: String,
-			required: true,
+			default: "",
 		},
 		cumulativeGasUsed: {
 			type: String,
