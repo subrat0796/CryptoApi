@@ -23,6 +23,6 @@ src\
 ## Routes
 
 ```
-1. /api/ether/getBalanceAndPrice/:userId - gives the user balance and current ether price
-2. /api/ether/getNormalTransactions/:userId - gives the normal transactions done by the user
+1. https://koinx-task.herokuapp.com/api/ether/getBalanceAndPrice/:userId - gives the user balance and current ether price (GET REQUEST)
+2. https://koinx-task.herokuapp.com/api/ether/getNormalTransactions/:userId - gives the normal transactions done by the user (GET REQUEST)
 ```
