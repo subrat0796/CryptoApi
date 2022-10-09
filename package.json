@@ -27,6 +27,7 @@
 		"winston": "^3.8.2"
 	},
 	"devDependencies": {
+		"date-and-time": "^2.4.1",
 		"nodemon": "^2.0.20"
 	}
 }

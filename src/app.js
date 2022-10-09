@@ -41,8 +41,18 @@ app.use((req, res, next) => {
 app.use(errorConverter);
 app.use(errorHandler);
 
-cron.scheduleJob("10 * * * *", async () => {
+async function RunEtherPrice() {
 	await NewEtherServices.getEtherPrice();
-});
+}
+
+const run = async () => {
+	try {
+		cron.scheduleJob("10 * * * *", RunEtherPrice);
+	} catch (err) {
+		console.log(err);
+	}
+};
+
+run();
 
 module.exports = app;
