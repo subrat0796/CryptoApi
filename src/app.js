@@ -47,7 +47,7 @@ async function RunEtherPrice() {
 
 const run = async () => {
 	try {
-		cron.scheduleJob("10 * * * *", RunEtherPrice);
+		cron.scheduleJob("*/1 * * * *", RunEtherPrice);
 	} catch (err) {
 		console.log(err);
 	}
